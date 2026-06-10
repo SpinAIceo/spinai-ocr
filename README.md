@@ -35,7 +35,8 @@ fast, fully-offline Korean engine for when accuracy-at-any-cost isn't the constr
 ## Install
 
 ```bash
-pip install spinai-ocr
+pip install git+https://github.com/SpinAIceo/spinai-ocr.git
+# PyPI release coming soon: pip install spinai-ocr
 ```
 
 The Korean model (~80 MB) is downloaded automatically on first run, then everything
