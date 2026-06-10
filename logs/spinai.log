@@ -1,0 +1,241 @@
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 200 OK"
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/zzz999 "HTTP/1.1 404 Not Found"
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/..%2Fpasswd "HTTP/1.1 404 Not Found"
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 404 Not Found"
+2026-06-10 15:57:37 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 15:57:37 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 15:57:37 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 15:57:37 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 15:57:37 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 15:57:37 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 15:57:37 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 15:57:37 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 15:57:37 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=134.0
+2026-06-10 15:57:37 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=129.3
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 15:57:37 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 15:57:37 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=6.8
+2026-06-10 15:57:37 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 15:57:37 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=2/3
+2026-06-10 15:57:37 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.400 thresh=0.650
+2026-06-10 15:57:37 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=-1.000 thresh=0.650
+2026-06-10 15:57:37 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=1/1
+2026-06-10 15:57:37 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=accurate cov=min_conf value=0.690 thresh=0.800
+2026-06-10 15:57:37 INFO     spinaiocr.inference:_apply_hybrid_routing:1073 | hybrid.routing_easyocr_only mode=easyocr_only n_lines=2
+2026-06-10 15:57:37 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=2
+2026-06-10 15:57:37 WARNING  spinaiocr.inference:_vlm_readtext_multi:819 | hybrid.vlm_service_down -> degrade to easyocr text
+2026-06-10 15:57:37 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=1
+2026-06-10 15:57:38 INFO     spinaiocr.inference:_apply_hybrid_routing:1055 | hybrid.routing_domain_aware mode=balanced -> easyocr_only
+2026-06-10 15:57:38 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.500 thresh=0.650
+2026-06-10 15:57:38 ERROR    spinaiocr.data.synth_simple:generate_simple:101 | synth.no_fonts dirs=[WindowsPath('C:/Users/taesh/AppData/Local/Temp/pub4/src/spinaiocr/assets/fonts/ko'), WindowsPath('C:/Users/taesh/AppData/Local/Temp/pub4/src/spinaiocr/assets/fonts/en')]
+2026-06-10 15:57:38 ERROR    spinaiocr.data.synth_simple:generate_simple:101 | synth.no_fonts dirs=[WindowsPath('C:/Users/taesh/AppData/Local/Temp/pub4/src/spinaiocr/assets/fonts/ko'), WindowsPath('C:/Users/taesh/AppData/Local/Temp/pub4/src/spinaiocr/assets/fonts/en')]
+2026-06-10 15:59:23 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 15:59:23 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 15:59:23 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 15:59:23 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 15:59:23 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 15:59:23 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 200 OK"
+2026-06-10 15:59:23 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/zzz999 "HTTP/1.1 404 Not Found"
+2026-06-10 15:59:23 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/..%2Fpasswd "HTTP/1.1 404 Not Found"
+2026-06-10 15:59:23 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 404 Not Found"
+2026-06-10 15:59:24 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 15:59:24 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 15:59:24 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 15:59:24 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 15:59:24 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 15:59:24 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 15:59:24 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=178.9
+2026-06-10 15:59:24 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=168.3
+2026-06-10 15:59:24 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 15:59:24 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 15:59:24 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=9.6
+2026-06-10 15:59:24 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=2/3
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.400 thresh=0.650
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=-1.000 thresh=0.650
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=1/1
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=accurate cov=min_conf value=0.690 thresh=0.800
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_apply_hybrid_routing:1073 | hybrid.routing_easyocr_only mode=easyocr_only n_lines=2
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=2
+2026-06-10 15:59:24 WARNING  spinaiocr.inference:_vlm_readtext_multi:819 | hybrid.vlm_service_down -> degrade to easyocr text
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=1
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_apply_hybrid_routing:1055 | hybrid.routing_domain_aware mode=balanced -> easyocr_only
+2026-06-10 15:59:24 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.500 thresh=0.650
+2026-06-10 15:59:25 ERROR    spinaiocr.data.synth_simple:generate_simple:101 | synth.no_fonts dirs=[WindowsPath('C:/Users/taesh/AppData/Local/Temp/pub4/src/spinaiocr/assets/fonts/ko'), WindowsPath('C:/Users/taesh/AppData/Local/Temp/pub4/src/spinaiocr/assets/fonts/en')]
+2026-06-10 16:00:43 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:00:43 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:00:43 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:00:43 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 16:00:43 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 16:00:43 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 200 OK"
+2026-06-10 16:00:43 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/zzz999 "HTTP/1.1 404 Not Found"
+2026-06-10 16:00:43 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/..%2Fpasswd "HTTP/1.1 404 Not Found"
+2026-06-10 16:00:43 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 404 Not Found"
+2026-06-10 16:00:44 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 16:00:44 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 16:00:44 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 16:00:44 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:00:44 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 16:00:44 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 16:00:44 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=157.1
+2026-06-10 16:00:44 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=162.2
+2026-06-10 16:00:44 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 16:00:44 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:00:44 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=11.7
+2026-06-10 16:00:44 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=2/3
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.400 thresh=0.650
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=-1.000 thresh=0.650
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=1/1
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=accurate cov=min_conf value=0.690 thresh=0.800
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_apply_hybrid_routing:1073 | hybrid.routing_easyocr_only mode=easyocr_only n_lines=2
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=2
+2026-06-10 16:00:44 WARNING  spinaiocr.inference:_vlm_readtext_multi:819 | hybrid.vlm_service_down -> degrade to easyocr text
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=1
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_apply_hybrid_routing:1055 | hybrid.routing_domain_aware mode=balanced -> easyocr_only
+2026-06-10 16:00:44 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.500 thresh=0.650
+2026-06-10 16:02:13 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:02:13 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:02:13 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:02:13 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 16:02:13 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 16:02:13 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 200 OK"
+2026-06-10 16:02:13 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/zzz999 "HTTP/1.1 404 Not Found"
+2026-06-10 16:02:13 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/..%2Fpasswd "HTTP/1.1 404 Not Found"
+2026-06-10 16:02:13 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 404 Not Found"
+2026-06-10 16:02:13 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 16:02:13 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 16:02:14 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 16:02:14 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:02:14 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 16:02:14 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 16:02:14 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=147.6
+2026-06-10 16:02:14 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=143.2
+2026-06-10 16:02:14 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 16:02:14 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:02:14 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=9.2
+2026-06-10 16:02:14 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=2/3
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.400 thresh=0.650
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=-1.000 thresh=0.650
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=1/1
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=accurate cov=min_conf value=0.690 thresh=0.800
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_apply_hybrid_routing:1073 | hybrid.routing_easyocr_only mode=easyocr_only n_lines=2
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=2
+2026-06-10 16:02:14 WARNING  spinaiocr.inference:_vlm_readtext_multi:819 | hybrid.vlm_service_down -> degrade to easyocr text
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=1
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_apply_hybrid_routing:1055 | hybrid.routing_domain_aware mode=balanced -> easyocr_only
+2026-06-10 16:02:14 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.500 thresh=0.650
+2026-06-10 16:03:10 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:03:10 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:03:10 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:03:10 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 16:03:10 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 16:03:10 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 200 OK"
+2026-06-10 16:03:10 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/zzz999 "HTTP/1.1 404 Not Found"
+2026-06-10 16:03:10 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/..%2Fpasswd "HTTP/1.1 404 Not Found"
+2026-06-10 16:03:10 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 404 Not Found"
+2026-06-10 16:03:10 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 16:03:10 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 16:03:10 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 16:03:10 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:03:10 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 16:03:10 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:03:10 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 16:03:11 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=137.1
+2026-06-10 16:03:11 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=145.4
+2026-06-10 16:03:11 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 16:03:11 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:03:11 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=6.7
+2026-06-10 16:03:11 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=2/3
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.400 thresh=0.650
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=-1.000 thresh=0.650
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=1/1
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=accurate cov=min_conf value=0.690 thresh=0.800
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_apply_hybrid_routing:1073 | hybrid.routing_easyocr_only mode=easyocr_only n_lines=2
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=2
+2026-06-10 16:03:11 WARNING  spinaiocr.inference:_vlm_readtext_multi:819 | hybrid.vlm_service_down -> degrade to easyocr text
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=1
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_apply_hybrid_routing:1055 | hybrid.routing_domain_aware mode=balanced -> easyocr_only
+2026-06-10 16:03:11 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.500 thresh=0.650
+2026-06-10 16:04:20 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:04:20 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:04:20 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:04:20 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 16:04:20 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 16:04:20 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 200 OK"
+2026-06-10 16:04:20 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/zzz999 "HTTP/1.1 404 Not Found"
+2026-06-10 16:04:20 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/..%2Fpasswd "HTTP/1.1 404 Not Found"
+2026-06-10 16:04:20 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 404 Not Found"
+2026-06-10 16:04:21 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 16:04:21 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 16:04:21 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 16:04:21 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:04:21 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 16:04:21 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 16:04:21 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=154.9
+2026-06-10 16:04:21 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=153.4
+2026-06-10 16:04:21 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 16:04:21 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:04:21 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=7.2
+2026-06-10 16:04:21 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=2/3
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.400 thresh=0.650
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=-1.000 thresh=0.650
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=1/1
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=accurate cov=min_conf value=0.690 thresh=0.800
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_apply_hybrid_routing:1073 | hybrid.routing_easyocr_only mode=easyocr_only n_lines=2
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=2
+2026-06-10 16:04:21 WARNING  spinaiocr.inference:_vlm_readtext_multi:819 | hybrid.vlm_service_down -> degrade to easyocr text
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=1
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_apply_hybrid_routing:1055 | hybrid.routing_domain_aware mode=balanced -> easyocr_only
+2026-06-10 16:04:21 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.500 thresh=0.650
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 404 Not Found"
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/list "HTTP/1.1 200 OK"
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 200 OK"
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/zzz999 "HTTP/1.1 404 Not Found"
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/..%2Fpasswd "HTTP/1.1 404 Not Found"
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: GET http://testserver/admin/hard_negatives/image/abc123 "HTTP/1.1 404 Not Found"
+2026-06-10 16:05:04 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 16:05:04 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=det path=checkpoints\lite\ko\det.pth — running untrained (no lines will be returned)
+2026-06-10 16:05:04 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 16:05:04 WARNING  spinaiocr.inference:_load_checkpoint_if_present:545 | ckpt.missing name=rec path=checkpoints\lite\ko\rec.pth — running untrained (no lines will be returned)
+2026-06-10 16:05:04 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:05:04 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:05:04 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 16:05:04 INFO     spinaiocr.inference:_build_lm:648 | pipeline.lm_fit n_lines=21 include_extended=True
+2026-06-10 16:05:04 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=156.9
+2026-06-10 16:05:04 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=156.1
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 16:05:04 INFO     spinaiocr.span:log_span:117 | span.start name=pipeline.single_line
+2026-06-10 16:05:04 INFO     spinaiocr.span:log_span:131 | span.end name=pipeline.single_line elapsed_ms=8.8
+2026-06-10 16:05:04 INFO     httpx:_send_single_request:1025 | HTTP Request: POST http://testserver/ocr/batch "HTTP/1.1 200 OK"
+2026-06-10 16:05:05 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=2/3
+2026-06-10 16:05:05 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.400 thresh=0.650
+2026-06-10 16:05:05 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=-1.000 thresh=0.650
+2026-06-10 16:05:05 INFO     spinaiocr.inference:_apply_hybrid_routing:1130 | hybrid.routing_per_line mode=fast thresh=0.700 n_routed=1/1
+2026-06-10 16:05:05 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=accurate cov=min_conf value=0.690 thresh=0.800
+2026-06-10 16:05:05 INFO     spinaiocr.inference:_apply_hybrid_routing:1073 | hybrid.routing_easyocr_only mode=easyocr_only n_lines=2
+2026-06-10 16:05:05 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=2
+2026-06-10 16:05:05 WARNING  spinaiocr.inference:_vlm_readtext_multi:819 | hybrid.vlm_service_down -> degrade to easyocr text
+2026-06-10 16:05:05 INFO     spinaiocr.inference:_apply_hybrid_routing:1087 | hybrid.routing_vlm mode=vlm n_lines=1
+2026-06-10 16:05:05 INFO     spinaiocr.inference:_apply_hybrid_routing:1055 | hybrid.routing_domain_aware mode=balanced -> easyocr_only
+2026-06-10 16:05:05 INFO     spinaiocr.inference:_apply_hybrid_routing:1107 | hybrid.routing_whole_fallback mode=balanced cov=min_conf value=0.500 thresh=0.650

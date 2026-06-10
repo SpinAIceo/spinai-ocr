@@ -1,4 +1,4 @@
-from spinai_ocr.vocab.base import load_vocab
+from spinaiocr.vocab.base import load_vocab
 
 
 def test_ko_en_vocab_roundtrip():

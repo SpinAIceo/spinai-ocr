@@ -1,7 +1,7 @@
 import numpy as np
 
-from spinai_ocr.data.pseudo import ConsensusConfig, consensus, polygon_iou
-from spinai_ocr.teachers.base import TeacherLine, TeacherPrediction
+from spinaiocr.data.pseudo import ConsensusConfig, consensus, polygon_iou
+from spinaiocr.teachers.base import TeacherLine, TeacherPrediction
 
 
 def _box(x, y, w, h):

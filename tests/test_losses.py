@@ -1,6 +1,6 @@
 import torch
 
-from spinai_ocr.training.losses import (
+from spinaiocr.training.losses import (
     BoundaryLoss,
     ConsistencyLoss,
     DBNetLoss,

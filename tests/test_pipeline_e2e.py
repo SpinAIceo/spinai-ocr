@@ -35,7 +35,7 @@ pytestmark = pytest.mark.skipif(
 
 
 def _pipeline(tier: str = "lite"):
-    from spinai_ocr.inference.pipeline import OCRPipeline
+    from spinaiocr.inference.pipeline import OCRPipeline
     return OCRPipeline(lang="ko", tier=tier, device="cpu")
 
 
@@ -67,7 +67,7 @@ def test_detcrops_cer_stays_reasonable():
     if not src.exists():
         pytest.skip("detcrops test data not installed")
 
-    from spinai_ocr.benchmark.metrics import compute_cer
+    from spinaiocr.benchmark.metrics import compute_cer
 
     pipe = _pipeline(PROD_TIER)
     lines = [ln for ln in src.read_text(encoding="utf-8").splitlines() if "\t" in ln]

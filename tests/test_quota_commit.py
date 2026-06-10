@@ -13,8 +13,8 @@ import io
 from fastapi.testclient import TestClient
 from PIL import Image
 
-from spinai_ocr.serve.app import app
-from spinai_ocr.serve.ratelimit import get_usage, reset_all, set_quota_override
+from spinaiocr.serve.app import app
+from spinaiocr.serve.ratelimit import get_usage, reset_all, set_quota_override
 
 
 def _png_bytes(w: int = 256, h: int = 64) -> bytes:
@@ -37,7 +37,7 @@ def test_413_does_not_burn_quota():
     """Oversized upload must 413 without consuming quota."""
     reset_all()
     c = TestClient(app)
-    from spinai_ocr.serve.app import MAX_IMAGE_BYTES
+    from spinaiocr.serve.app import MAX_IMAGE_BYTES
     big = b"\xff" * (MAX_IMAGE_BYTES + 10)
     r = c.post("/ocr", files={"file": ("big.bin", big, "image/png")})
     assert r.status_code == 413
@@ -57,7 +57,7 @@ def test_batch_quota_rejects_when_budget_too_small():
     reset_all()
     c = TestClient(app)
     # Seed the counter to 49 so a batch of 2 would overflow limit=50.
-    from spinai_ocr.serve.ratelimit import _COUNTS, _month_key
+    from spinaiocr.serve.ratelimit import _COUNTS, _month_key
     identity = "ip:testclient"
     _COUNTS[(identity, _month_key())] = 49
     import base64
@@ -70,7 +70,7 @@ def test_batch_quota_rejects_when_budget_too_small():
 
 
 def _all_counts() -> dict:
-    from spinai_ocr.serve.ratelimit import _COUNTS
+    from spinaiocr.serve.ratelimit import _COUNTS
     return dict(_COUNTS)
 
 
@@ -82,7 +82,7 @@ def test_422_high_unk_ratio_does_not_burn_quota(monkeypatch):
     c = TestClient(app)
     # Force the pipeline to return a synthetic high-unk result without
     # depending on real OCR output (which is empty for blank canvas).
-    from spinai_ocr.inference.pipeline import OCRPipeline, OCRLine, OCRResult
+    from spinaiocr.inference.pipeline import OCRPipeline, OCRLine, OCRResult
 
     def _fake_call(self, image, single_line=None, decode_mode=None):  # noqa: ANN001
         return OCRResult(
@@ -106,7 +106,7 @@ def test_batch_uncertain_items_do_not_burn_quota(monkeypatch):
     reset_all()
     c = TestClient(app)
 
-    from spinai_ocr.inference.pipeline import OCRPipeline, OCRLine, OCRResult
+    from spinaiocr.inference.pipeline import OCRPipeline, OCRLine, OCRResult
 
     # iter 155: route by image content, not call order. /ocr/batch fans
     # out via asyncio.gather so the order in which _fake_call observes

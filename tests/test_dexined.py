@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 
-from spinai_ocr.models.dexined import DexiNed
+from spinaiocr.models.dexined import DexiNed
 
 
 def test_dexined_forward_runs():

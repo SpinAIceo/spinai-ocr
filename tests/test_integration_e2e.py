@@ -6,27 +6,35 @@ signal is "the full pipeline ran without raising."
 from __future__ import annotations
 
 from pathlib import Path
+import pytest
 
 import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
-from spinai_ocr.benchmark.metrics import compute_cer
-from spinai_ocr.data.synth_simple import (
+from spinaiocr.benchmark.metrics import compute_cer
+from spinaiocr.data.synth_simple import (
     SimpleSynthSpec,
     default_korean_corpus,
     generate_simple,
 )
-from spinai_ocr.inference.pipeline import OCRPipeline
-from spinai_ocr.models.angle_cls import AngleClassifier, predict_angle
-from spinai_ocr.models.recognition import build_recognition
-from spinai_ocr.training.datamodule import (
+from spinaiocr.inference.pipeline import OCRPipeline
+from spinaiocr.models.angle_cls import AngleClassifier, predict_angle
+from spinaiocr.models.recognition import build_recognition
+from spinaiocr.training.datamodule import (
     RecognitionTrainingDataset,
     recognition_collate,
 )
-from spinai_ocr.vocab.base import load_vocab
+from spinaiocr.vocab.base import load_vocab
+from spinaiocr.data.synth_simple import _list_fonts, DEFAULT_FONT_DIR
+
+# Synthetic-data fonts are a dev/training extra (not shipped — license/size).
+# Inference users never need them; skip synth-based smoke tests without them.
+_HAS_FONTS = bool(_list_fonts([DEFAULT_FONT_DIR / "ko", DEFAULT_FONT_DIR / "en"]))
+requires_fonts = pytest.mark.skipif(not _HAS_FONTS, reason="synthetic-data fonts not bundled")
 
 
+@requires_fonts
 def test_full_pipeline_runs(tmp_path: Path):
     # Seed so the untrained-model CER below has a deterministic upper bound
     # (CER on random weights can exceed 1.0 when the CTC decode over-produces,
@@ -86,6 +94,7 @@ def test_angle_classifier_forward():
     assert angle in (0, 90, 180, 270)
 
 
+@requires_fonts
 def test_pipeline_no_ckpt_graceful(tmp_path: Path):
     """Pipeline must boot and run even without trained checkpoints — returns
     no lines but does not raise."""

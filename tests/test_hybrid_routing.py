@@ -21,8 +21,8 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from spinai_ocr.config import PipelineConfig, RecognitionConfig
-from spinai_ocr.inference.pipeline import OCRPipeline
+from spinaiocr.config import PipelineConfig, RecognitionConfig
+from spinaiocr.inference.pipeline import OCRPipeline
 
 
 def _bare_pipeline(routing_mode=None, **rec_kwargs):
@@ -376,7 +376,7 @@ def test_iter142_detection_arch_removed():
     Literal field with zero readers. iter 142 removed it. If a future
     refactor wants pluggable detection backbones, do it via a factory
     function — a Literal in config that nothing reads is a lie."""
-    from spinai_ocr.config import DetectionConfig
+    from spinaiocr.config import DetectionConfig
     assert "arch" not in DetectionConfig.model_fields
 
 
@@ -384,7 +384,7 @@ def test_iter142_layoutconfig_dataconfig_removed():
     """Both `LayoutConfig` and `DataConfig` were scaffolding classes
     with no functional read in src/. Removed. Re-introduction must
     come with at least one consumer."""
-    import spinai_ocr.config as cfg_mod
+    import spinaiocr.config as cfg_mod
     assert not hasattr(cfg_mod, "LayoutConfig")
     assert not hasattr(cfg_mod, "DataConfig")
     assert not hasattr(cfg_mod, "DEFAULT_DATA")
@@ -395,7 +395,7 @@ def test_iter142_pipeline_config_no_layout_field():
     """`PipelineConfig.layout` was the only non-trivial reference to
     `LayoutConfig` and read nothing. Pin that removing it does not
     silently leak via the schema."""
-    from spinai_ocr.config import PipelineConfig
+    from spinaiocr.config import PipelineConfig
     assert "layout" not in PipelineConfig.model_fields
 
 
@@ -467,9 +467,9 @@ def test_vlm_uses_vl_recognition_per_crop(monkeypatch):
     monkeypatch.setattr(OCRPipeline, "_easyocr_readtext_multi",
                         lambda self, img: [(eo1, "EO_1", 0.5), (eo2, "EO_2", 0.5)],
                         raising=False)
-    monkeypatch.setattr("spinai_ocr.inference.vl_client.vl_healthy",
+    monkeypatch.setattr("spinaiocr.inference.vl_client.vl_healthy",
                         lambda timeout=3.0: True, raising=False)
-    monkeypatch.setattr("spinai_ocr.inference.vl_client.vl_ocr",
+    monkeypatch.setattr("spinaiocr.inference.vl_client.vl_ocr",
                         lambda crop, fallback="", **kw: "VL_TEXT", raising=False)
     img = np.zeros((120, 400, 3), dtype=np.uint8)
     polys = [np.array([[10, 10], [80, 10], [80, 40], [10, 40]], dtype=np.float32)]
@@ -486,7 +486,7 @@ def test_vlm_degrades_to_easyocr_text_when_service_down(monkeypatch):
     eo1 = np.array([[5, 5], [60, 5], [60, 30], [5, 30]], dtype=np.float32)
     monkeypatch.setattr(OCRPipeline, "_easyocr_readtext_multi",
                         lambda self, img: [(eo1, "EO_FALLBACK", 0.5)], raising=False)
-    monkeypatch.setattr("spinai_ocr.inference.vl_client.vl_healthy",
+    monkeypatch.setattr("spinaiocr.inference.vl_client.vl_healthy",
                         lambda timeout=3.0: False, raising=False)
     img = np.zeros((120, 400, 3), dtype=np.uint8)
     polys = [np.array([[10, 10], [80, 10], [80, 40], [10, 40]], dtype=np.float32)]

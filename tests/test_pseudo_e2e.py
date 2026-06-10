@@ -15,12 +15,12 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-from spinai_ocr.data.pseudo import (
+from spinaiocr.data.pseudo import (
     ConsensusConfig,
     pseudo_label_directory,
     pseudo_label_image,
 )
-from spinai_ocr.teachers.base import OCRTeacher, TeacherLine, TeacherPrediction
+from spinaiocr.teachers.base import OCRTeacher, TeacherLine, TeacherPrediction
 
 
 class MockTeacher(OCRTeacher):

@@ -78,10 +78,10 @@ dev = [
 ]
 
 [project.scripts]
-spinaiocr = "spinai_ocr.cli:main"
-spinaiocr-collect = "spinai_ocr.data.collect:main"
-spinaiocr-bench = "spinai_ocr.benchmark.run:main"
-spinaiocr-logs = "spinai_ocr.log.cli:main"
+spinaiocr = "spinaiocr.cli:main"
+spinaiocr-collect = "spinaiocr.data.collect:main"
+spinaiocr-bench = "spinaiocr.benchmark.run:main"
+spinaiocr-logs = "spinaiocr.log.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/SpinAIceo/spinai-ocr"

@@ -2,7 +2,7 @@ import unicodedata
 
 import pytest
 
-from spinai_ocr.benchmark.metrics import (
+from spinaiocr.benchmark.metrics import (
     compute_bag_f1_char,
     compute_bag_f1_word,
     compute_cer,

@@ -10,4 +10,4 @@ checkpoints/
 *.pth
 *.onnx
 # Local data
-data/
+/data/

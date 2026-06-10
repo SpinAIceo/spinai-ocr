@@ -36,7 +36,7 @@ fast, fully-offline Korean engine for when accuracy-at-any-cost isn't the constr
 
 ```bash
 pip install git+https://github.com/SpinAIceo/spinai-ocr.git
-# PyPI release coming soon: pip install spinai-ocr
+# PyPI release coming soon: pip install spinaiocr
 ```
 
 The Korean model (~80 MB) is downloaded automatically on first run, then everything
@@ -45,7 +45,7 @@ runs offline. No manual setup — the model is hosted on HuggingFace (spinaiceo/
 ## Quickstart
 
 ```python
-from spinai_ocr import OCRPipeline
+from spinaiocr import OCRPipeline
 
 ocr = OCRPipeline(lang="ko")          # CPU by default, fully offline
 result = ocr("your_image.jpg")

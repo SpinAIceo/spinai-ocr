@@ -13,8 +13,8 @@ import io
 from fastapi.testclient import TestClient
 from PIL import Image
 
-from spinai_ocr.serve.app import app
-from spinai_ocr.serve.ratelimit import reset_all
+from spinaiocr.serve.app import app
+from spinaiocr.serve.ratelimit import reset_all
 
 
 def _b64() -> str:

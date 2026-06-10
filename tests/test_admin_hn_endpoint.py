@@ -40,7 +40,7 @@ def _make_queue(tmp_path: Path, uids: list[str]) -> Path:
 def client(tmp_path, monkeypatch):
     root = _make_queue(tmp_path, ["abc123", "def456"])
     monkeypatch.setenv("SPINAI_HN_DIR", str(root))
-    from spinai_ocr.serve.app import app
+    from spinaiocr.serve.app import app
     return TestClient(app), root
 
 
@@ -85,7 +85,7 @@ def test_list_empty_queue_returns_n0(tmp_path, monkeypatch):
     root.mkdir()
     monkeypatch.setenv("SPINAI_HN_DIR", str(root))
     monkeypatch.setenv("SPINAI_ADMIN_TOKEN", "tok")
-    from spinai_ocr.serve.app import app
+    from spinaiocr.serve.app import app
     c = TestClient(app)
     r = c.get("/admin/hard_negatives/list", headers={"X-Admin-Token": "tok"})
     assert r.status_code == 200

@@ -10,7 +10,7 @@ import torch
 
 
 def test_experiment_tracker_writes_all(tmp_path, monkeypatch):
-    from spinai_ocr.experiments import ExperimentTracker
+    from spinaiocr.experiments import ExperimentTracker
 
     monkeypatch.setenv("SPINAI_LOG_DIR", str(tmp_path / "logs"))
     tracker = ExperimentTracker.create(
@@ -37,8 +37,8 @@ def test_experiment_tracker_writes_all(tmp_path, monkeypatch):
 
 def test_greedy_and_beam_decoders_agree_on_trivial():
     """On a near-deterministic output, greedy and beam should pick the same path."""
-    from spinai_ocr.inference.decoders import BeamConfig, ctc_beam_search, ctc_greedy
-    from spinai_ocr.vocab.base import Vocab
+    from spinaiocr.inference.decoders import BeamConfig, ctc_beam_search, ctc_greedy
+    from spinaiocr.vocab.base import Vocab
 
     v = Vocab(name="tiny", chars=list("abc"))
     T = 6
@@ -55,7 +55,7 @@ def test_greedy_and_beam_decoders_agree_on_trivial():
 
 
 def test_char_bigram_lm_scores_known_transitions():
-    from spinai_ocr.inference.decoders import CharBigramLM
+    from spinaiocr.inference.decoders import CharBigramLM
 
     lm = CharBigramLM(alpha=0.5)
     lm.fit(["hello", "world", "help"])
@@ -64,7 +64,7 @@ def test_char_bigram_lm_scores_known_transitions():
 
 
 def test_error_analysis_report_basic():
-    from spinai_ocr.benchmark.error_analysis import analyze
+    from spinaiocr.benchmark.error_analysis import analyze
 
     hyps = ["hello", "wold", "help"]
     refs = ["hello", "world", "help"]
@@ -75,7 +75,7 @@ def test_error_analysis_report_basic():
 
 
 def test_curriculum_sampler_expands_over_time():
-    from spinai_ocr.training.curriculum import (
+    from spinaiocr.training.curriculum import (
         CurriculumConfig, CurriculumSampler,
     )
 
@@ -96,7 +96,7 @@ def test_curriculum_sampler_expands_over_time():
 
 
 def test_tta_predict_shape_matches():
-    from spinai_ocr.inference.tta_ensemble import TTAConfig, tta_predict
+    from spinaiocr.inference.tta_ensemble import TTAConfig, tta_predict
 
     class Tiny(torch.nn.Module):
         def forward(self, x):
@@ -112,7 +112,7 @@ def test_tta_predict_shape_matches():
 
 
 def test_model_registry_register_and_best(tmp_path):
-    from spinai_ocr.models.registry import ModelRegistry
+    from spinaiocr.models.registry import ModelRegistry
 
     # create a fake ckpt
     ckpt = tmp_path / "fake.pth"
@@ -133,7 +133,7 @@ def test_model_registry_register_and_best(tmp_path):
 # instead of `checkpoints/consumer_v1/ko/rec.pth`. Pin all three paths.
 
 def test_promote_to_current_explicit_tier(tmp_path):
-    from spinai_ocr.models.registry import ModelRegistry
+    from spinaiocr.models.registry import ModelRegistry
 
     ckpt = tmp_path / "rec.pth"
     torch.save({"state_dict": {"a": torch.zeros(1)}}, ckpt)
@@ -150,7 +150,7 @@ def test_promote_to_current_explicit_tier(tmp_path):
 
 
 def test_promote_to_current_tier_from_config(tmp_path):
-    from spinai_ocr.models.registry import ModelRegistry
+    from spinaiocr.models.registry import ModelRegistry
 
     ckpt = tmp_path / "rec.pth"
     torch.save({"state_dict": {"a": torch.zeros(1)}}, ckpt)
@@ -168,7 +168,7 @@ def test_promote_to_current_defaults_to_lite_for_back_compat(tmp_path):
     """Entries registered before iter 140 don't carry a 'tier' in config.
     For those, default to 'lite' so old test fixtures + scripts keep
     working byte-identical."""
-    from spinai_ocr.models.registry import ModelRegistry
+    from spinaiocr.models.registry import ModelRegistry
 
     ckpt = tmp_path / "rec.pth"
     torch.save({"state_dict": {"a": torch.zeros(1)}}, ckpt)
@@ -182,7 +182,7 @@ def test_promote_to_current_defaults_to_lite_for_back_compat(tmp_path):
 
 
 def test_regression_gate_installs_baseline(tmp_path):
-    from spinai_ocr.benchmark.eval_harness import (
+    from spinaiocr.benchmark.eval_harness import (
         EvalMetrics, RegressionGate,
     )
 
@@ -198,7 +198,7 @@ def test_regression_gate_installs_baseline(tmp_path):
 
 
 def test_logged_io_atomic_write_bytes(tmp_path):
-    from spinai_ocr.io import atomic_write_bytes, sha256_of_file
+    from spinaiocr.io import atomic_write_bytes, sha256_of_file
 
     path = tmp_path / "sub" / "file.bin"
     atomic_write_bytes(path, b"hello world", sha256=False)
@@ -209,7 +209,7 @@ def test_logged_io_atomic_write_bytes(tmp_path):
 
 
 def test_logged_io_save_jsonl_append(tmp_path):
-    from spinai_ocr.io import save_jsonl_append
+    from spinaiocr.io import save_jsonl_append
 
     path = tmp_path / "x.jsonl"
     n = save_jsonl_append(path, [{"a": 1}, {"b": 2}])

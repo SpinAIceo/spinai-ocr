@@ -13,7 +13,7 @@ from pathlib import Path
 
 import pytest
 
-from spinai_ocr.config import ModelTier
+from spinaiocr.config import ModelTier
 
 
 def test_model_tier_includes_medical():
@@ -30,8 +30,8 @@ def test_model_tier_includes_medical():
 def test_pipeline_medical_tier_loads_correct_arch_and_vocab():
     """With tier='medical', the recognizer is built with svtr_medical
     (not svtr_lite) and head sized to the 2005-char pruned vocab."""
-    from spinai_ocr.config import PipelineConfig
-    from spinai_ocr.inference.pipeline import OCRPipeline
+    from spinaiocr.config import PipelineConfig
+    from spinaiocr.inference.pipeline import OCRPipeline
     pipe = OCRPipeline(config=PipelineConfig(lang="ko", tier="medical",
                                                device="cpu"))
     pipe._ensure_loaded()

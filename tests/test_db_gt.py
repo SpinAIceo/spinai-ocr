@@ -1,6 +1,6 @@
 import numpy as np
 
-from spinai_ocr.training.db_gt import build_dbnet_targets
+from spinaiocr.training.db_gt import build_dbnet_targets
 
 
 def test_dbnet_targets_shapes():

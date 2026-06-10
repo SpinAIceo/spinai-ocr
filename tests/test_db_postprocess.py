@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-from spinai_ocr.inference.db_postprocess import DBPostProcessor
+from spinaiocr.inference.db_postprocess import DBPostProcessor
 
 
 def test_extract_polygon_from_synthetic_blob():

@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pytest
 
-from spinai_ocr.log import (
+from spinaiocr.log import (
     NaNInfGuard,
     capture_crashes,
     check_finite,
@@ -17,7 +17,7 @@ from spinai_ocr.log import (
     log_span,
     setup_logging,
 )
-from spinai_ocr.log.config import LogConfig
+from spinaiocr.log.config import LogConfig
 
 
 @pytest.fixture
@@ -25,7 +25,7 @@ def log_env(tmp_path, monkeypatch):
     monkeypatch.setenv("SPINAI_LOG_DIR", str(tmp_path))
     monkeypatch.setenv("SPINAI_LOG_LEVEL", "DEBUG")
     # reset global state
-    import spinai_ocr.log.config as cfg_mod
+    import spinaiocr.log.config as cfg_mod
     cfg_mod._CONFIGURED = False
     root = logging.getLogger()
     for h in list(root.handlers):
@@ -126,12 +126,12 @@ def test_log_span_emits_start_and_end(log_env):
 def test_per_module_override_via_env(tmp_path, monkeypatch):
     monkeypatch.setenv("SPINAI_LOG_DIR", str(tmp_path))
     monkeypatch.setenv("SPINAI_LOG_LEVEL", "WARNING")
-    monkeypatch.setenv("SPINAI_LOG_LEVELS", '{"spinai_ocr.data": "DEBUG"}')
-    import spinai_ocr.log.config as cfg_mod
+    monkeypatch.setenv("SPINAI_LOG_LEVELS", '{"spinaiocr.data": "DEBUG"}')
+    import spinaiocr.log.config as cfg_mod
     cfg_mod._CONFIGURED = False
     for h in list(logging.getLogger().handlers):
         logging.getLogger().removeHandler(h)
     setup_logging(force=True)
-    # spinai_ocr.data should be DEBUG-level
-    assert logging.getLogger("spinai_ocr.data").level == logging.DEBUG
+    # spinaiocr.data should be DEBUG-level
+    assert logging.getLogger("spinaiocr.data").level == logging.DEBUG
     cfg_mod._CONFIGURED = False

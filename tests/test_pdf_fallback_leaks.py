@@ -17,7 +17,7 @@ import io
 import pypdfium2 as pdfium
 import pytest
 
-from spinai_ocr.inference.pdf_fallback import extract
+from spinaiocr.inference.pdf_fallback import extract
 
 
 def _build_blank_pdf(n_pages: int = 3) -> bytes:

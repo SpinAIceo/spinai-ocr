@@ -1,6 +1,6 @@
 import numpy as np
 
-from spinai_ocr.layout.analyzer import LayoutAnalyzer
+from spinaiocr.layout.analyzer import LayoutAnalyzer
 
 
 def _bbox(x, y, w, h):
