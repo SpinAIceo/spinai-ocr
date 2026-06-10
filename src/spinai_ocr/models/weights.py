@@ -19,6 +19,44 @@ from urllib.request import urlretrieve
 
 CHECKPOINT_ROOT = Path(os.environ.get("SPINAI_CKPT_ROOT", "checkpoints"))
 
+# --- Published Korean model (auto-downloaded on first run) -------------------
+# Apache-2.0; hosted on HuggingFace. Override base via SPINAI_MODEL_BASE_URL.
+_HF_BASE = os.environ.get(
+    "SPINAI_MODEL_BASE_URL",
+    "https://huggingface.co/spinaiceo/spinai-ocr-consumer-v1/resolve/main",
+)
+# (tier, lang) -> {local filename: required?}
+_PUBLISHED: dict[tuple[str, str], dict[str, bool]] = {
+    ("consumer_v1", "ko"): {"det.pth": True, "rec.pth": True, "vocab.txt": True, "angle.pth": False},
+}
+
+
+def ensure_models(checkpoints_root: str | Path, tier: str, lang: str) -> None:
+    """Download the published model on first run (no-op if files already present
+    or (tier, lang) is not published). Lets ``pip install spinai-ocr`` work with
+    zero manual steps: first call fetches ~80 MB from HuggingFace, then fully
+    offline. Set SPINAI_NO_DOWNLOAD=1 to disable."""
+    if os.environ.get("SPINAI_NO_DOWNLOAD"):
+        return
+    files = _PUBLISHED.get((tier, lang))
+    if not files:
+        return
+    dest = Path(checkpoints_root) / tier / lang
+    for fname, required in files.items():
+        target = dest / fname
+        if target.exists():
+            continue
+        target.parent.mkdir(parents=True, exist_ok=True)
+        url = f"{_HF_BASE}/{lang}/{fname}"
+        try:
+            tmp = target.with_suffix(target.suffix + ".part")
+            urlretrieve(url, tmp)
+            tmp.replace(target)
+        except Exception:
+            if required:
+                raise
+            # optional weight (e.g. angle.pth) — skip silently if unavailable
+
 
 @dataclass
 class WeightEntry:

@@ -39,7 +39,7 @@ pip install spinai-ocr
 ```
 
 The Korean model (~80 MB) is downloaded automatically on first run, then everything
-runs offline. (Until the model is published on a mirror, see [Releases] / the demo.)
+runs offline. No manual setup — the model is hosted on HuggingFace (spinaiceo/spinai-ocr-consumer-v1).
 
 ## Quickstart
 

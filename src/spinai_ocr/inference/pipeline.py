@@ -494,6 +494,11 @@ class OCRPipeline:
         self._easyocr_reader = None  # lazy-init on first routing trigger
         self.device = _resolve_device(self.config.device)
         self.checkpoints_root = Path(checkpoints_root)
+        # Auto-download the published Korean model on first run (no-op if present
+        # or tier/lang unpublished). Makes `pip install spinai-ocr` work offline
+        # after one fetch. Disable with SPINAI_NO_DOWNLOAD=1.
+        from spinai_ocr.models.weights import ensure_models
+        ensure_models(self.checkpoints_root, self.config.tier, self.config.lang)
         self._detector: DBNet | None = None
         self._recognizer: torch.nn.Module | None = None
         # _84 (iter 27): optional secondary recognizer for v2d + v2f ensemble.
