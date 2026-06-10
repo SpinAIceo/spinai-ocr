@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "spinai-ocr"
+name = "spinaiocr"
 version = "0.0.1"
-description = "The fastest, smallest Korean OCR — 24 MB, ~14 ms/line on CPU, fully offline. No GPU, no cloud."
+description = "The fastest, smallest Korean OCR — ~80 MB, ~14 ms/line on CPU, fully offline. No GPU, no cloud."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Apache-2.0" }
@@ -78,15 +78,15 @@ dev = [
 ]
 
 [project.scripts]
-spinai-ocr = "spinai_ocr.cli:main"
-spinai-ocr-collect = "spinai_ocr.data.collect:main"
-spinai-ocr-bench = "spinai_ocr.benchmark.run:main"
-spinai-ocr-logs = "spinai_ocr.log.cli:main"
+spinaiocr = "spinai_ocr.cli:main"
+spinaiocr-collect = "spinai_ocr.data.collect:main"
+spinaiocr-bench = "spinai_ocr.benchmark.run:main"
+spinaiocr-logs = "spinai_ocr.log.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/spinai/spinai-ocr"
-Documentation = "https://github.com/spinai/spinai-ocr/blob/main/README.md"
-Issues = "https://github.com/spinai/spinai-ocr/issues"
+Homepage = "https://github.com/SpinAIceo/spinai-ocr"
+Documentation = "https://github.com/SpinAIceo/spinai-ocr/blob/main/README.md"
+Issues = "https://github.com/SpinAIceo/spinai-ocr/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
